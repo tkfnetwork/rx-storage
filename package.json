@@ -11,6 +11,10 @@
     "prettier": "prettier src/**/* --write",
     "test": "jest"
   },
+  "files": [
+    "src/",
+    "dist/"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tkfnetwork/rx-storage.git"
