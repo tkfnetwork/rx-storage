@@ -1,1 +1,1 @@
-export * from "./RxStorage";
+export * from './RxStorage';

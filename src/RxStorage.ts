@@ -1,4 +1,4 @@
-import { BehaviorSubject, Observable } from "rxjs";
+import { BehaviorSubject, Observable } from 'rxjs';
 
 /**
  * RxStorage
@@ -25,10 +25,7 @@ export class RxStorage {
 
     // Prepopulate on creation
     this.$ = new Map<string, BehaviorSubject<string | null>>(
-      Object.entries(storage).map(([key, value]) => [
-        key,
-        new BehaviorSubject(value),
-      ])
+      Object.entries(storage).map(([key, value]) => [key, new BehaviorSubject(value)])
     );
 
     return this;
@@ -39,7 +36,8 @@ export class RxStorage {
    * and from other windows/tabs/frames
    */
   private listen = () => {
-    window.addEventListener("storage", (e) => {
+    window.addEventListener('storage', (e) => {
+      console.log({ e });
       this.sync(e.storageArea);
     });
   };
@@ -54,10 +52,12 @@ export class RxStorage {
    *
    * @param storage
    */
-  public sync(storage: Storage | null) {
+  public sync(storage?: Storage | null) {
     const store = storage ?? this.storage;
     const keys = Object.keys(store);
     const mapKeys = [...this.$.keys()];
+
+    console.log('keys', keys);
 
     // We have to check for and remove keys that
     // no longer exist as they will be out of sync
@@ -76,7 +76,7 @@ export class RxStorage {
   /** Storage Methods **/
 
   get length() {
-    return this.storage.length;
+    return this.$.size;
   }
 
   public clear(): void {
@@ -95,6 +95,7 @@ export class RxStorage {
   }
 
   public removeItem(key: string): void {
+    this.removeItem$(key);
     this.storage.removeItem(key);
   }
 
