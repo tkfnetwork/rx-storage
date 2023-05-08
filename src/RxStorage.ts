@@ -35,12 +35,11 @@ export class RxStorage {
    * Listen for changes from other sources
    * and from other windows/tabs/frames
    */
-  private listen = () => {
+  private listen() {
     window.addEventListener('storage', (e) => {
-      console.log({ e });
       this.sync(e.storageArea);
     });
-  };
+  }
 
   /**
    * Syncronises the storage instance with
@@ -56,8 +55,6 @@ export class RxStorage {
     const store = storage ?? this.storage;
     const keys = Object.keys(store);
     const mapKeys = [...this.$.keys()];
-
-    console.log('keys', keys);
 
     // We have to check for and remove keys that
     // no longer exist as they will be out of sync
@@ -85,18 +82,20 @@ export class RxStorage {
   }
 
   public setItem(key: string, value: string): void {
-    this.setItem$(key, value);
     this.storage.setItem(key, value);
+    this.setItem$(key, value);
   }
 
   public getItem(key: string): string | null {
+    const item = this.storage.getItem(key);
     this.getItem$(key);
-    return this.storage.getItem(key);
+
+    return item;
   }
 
   public removeItem(key: string): void {
-    this.removeItem$(key);
     this.storage.removeItem(key);
+    this.removeItem$(key);
   }
 
   public key(i: number): string | null {
