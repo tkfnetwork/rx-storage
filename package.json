@@ -1,6 +1,6 @@
 {
   "name": "@tkfnetwork/rx-storage",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "RxJS wrapper for listening and subscribing to Storage based events",
   "main": "dist/index.js",
   "scripts": {
