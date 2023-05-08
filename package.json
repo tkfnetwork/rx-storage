@@ -1,0 +1,33 @@
+{
+  "name": "@tkfnetwork/rx-storage",
+  "version": "0.0.1",
+  "description": "RxJS wrapper for listening and subscribing to Storage based events",
+  "main": "dist/index.js",
+  "scripts": {
+    "prepare": "npm run build",
+    "build": "rimraf dist/ && tsc",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tkfnetwork/rx-storage.git"
+  },
+  "keywords": [
+    "rxjs",
+    "storage",
+    "localstorage"
+  ],
+  "author": "Kris Pomphrey <kris@tkf.network>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tkfnetwork/rx-storage/issues"
+  },
+  "homepage": "https://github.com/tkfnetwork/rx-storage#readme",
+  "dependencies": {
+    "rxjs": "^7.8.1"
+  },
+  "devDependencies": {
+    "rimraf": "^5.0.0",
+    "typescript": "^5.0.4"
+  }
+}
