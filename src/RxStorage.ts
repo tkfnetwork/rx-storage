@@ -32,14 +32,28 @@ export class RxStorage {
   }
 
   /**
+   * Cleanup operations
+   */
+  public cleanup() {
+    window.removeEventListener('storage', this.storageEvent);
+  }
+
+  /**
    * Listen for changes from other sources
    * and from other windows/tabs/frames
    */
   private listen() {
-    window.addEventListener('storage', (e) => {
-      this.sync(e.storageArea);
-    });
+    window.addEventListener('storage', this.storageEvent);
   }
+
+  /**
+   * Storage event handler
+   *
+   * @param e
+   */
+  private storageEvent = (e: StorageEvent) => {
+    this.sync(e.storageArea);
+  };
 
   /**
    * Syncronises the storage instance with
