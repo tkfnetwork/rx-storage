@@ -1,6 +1,6 @@
 {
   "name": "@tkfnetwork/rx-storage",
-  "version": "0.0.6",
+  "version": "0.1.0",
   "description": "RxJS wrapper for listening and subscribing to Storage based events",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -29,7 +29,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@git.kpho.me/kris/rx-storage.git"
+    "url": "git+https://github.com/tkfnetwork/rx-storage.git"
   },
   "keywords": [
     "rxjs",
@@ -39,9 +39,9 @@
   "author": "Kris Pomphrey <kris@tkf.network>",
   "license": "ISC",
   "bugs": {
-    "url": "https://git.kpho.me/kris/rx-storage/issues"
+    "url": "https://github.com/tkfnetwork/rx-storage/issues"
   },
-  "homepage": "https://git.kpho.me/kris/rx-storage#readme",
+  "homepage": "https://github.com/tkfnetwork/rx-storage#readme",
   "peerDependencies": {
     "rxjs": "^7.8.0"
   },
